@@ -1,0 +1,397 @@
+body {
+  background-color: #ebeff2;
+}
+
+header {
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-bottom: 25px;
+}
+
+h3 {
+  color: #505458;
+  font-family: "Karla", sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  display: inline;
+}
+
+.board_links {
+  float: right;
+}
+
+.icon {
+  width: 14%;
+  height: auto;
+}
+
+.outer_ring {
+  width: 110px;
+  height: 30px;
+  background-color: #ffffff;
+  /* BG color should change to #e4e7ea this when tab is active  */
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 25px;
+}
+
+.outer_ring p {
+  display: inline;
+  color: #171515;
+  vertical-align: baseline;
+  line-height: 30px;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
+.main_body {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.top_row {
+  display: flex;
+  flex-direction: row;
+  min-height: 700px;
+  margin-bottom: 100px;
+}
+
+.chart_area {
+  flex-grow: 6.5;
+  flex-basis: 65%;
+  max-height: 700px;
+  background-color: #ffffff;
+  margin-right: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  position: relative;
+  overflow: scroll;
+}
+
+#heatmapChart {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.filters {
+  flex-grow: 3.5;
+  flex-basis: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mid_row {
+  height: 260px;
+  margin-bottom: 20px;
+}
+
+.rows {
+  display: flex;
+  height: 120px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.countries {
+  background-color: #ffffff;
+  flex-grow: 2;
+  flex-basis: 17%;
+  width: 20% - 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.countries:nth-child(5) {
+  margin-right: 0px;
+}
+
+.countries:last-child {
+  margin-right: 0px;
+}
+
+.bottom_row {
+  min-height: 500px;
+  background-color: #ffffff;
+  margin-bottom: 80px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 25px;
+  position: relative;
+}
+.guide {
+  width: 900px;
+  height: 900px;
+  background-color: #ffffff;
+  margin: auto;
+}
+
+h1 {
+  color: #505458;
+  font-family: "Karla", sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.feedback {
+  background-color: #ffffff;
+  margin: auto;
+  height: 280px;
+  width: 600px;
+  vertical-align: middle;
+}
+
+form {
+  /* margin: auto; */
+  /* height: 260px; */
+  /* width: 570px; */
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 33px;
+  height: 20px;
+  float: right;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.node {
+  flex-grow: 2;
+  padding: 20px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.year {
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-right: 15px;
+  height: 70px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 18px;
+  font-family: "Karla", sans-serif;
+  color: #505458;
+  font-weight: normal;
+}
+
+h5 {
+  font-family: "Karla", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #505458;
+}
+
+.coordinates {
+  line-height: 1px;
+  background-color: #ffffff;
+  padding: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  height: 120px;
+}
+
+.coord {
+  display: flex;
+  flex-direction: row;
+}
+
+.horizontal {
+  flex-grow: 5;
+}
+
+.vertical {
+  flex-grow: 5;
+}
+
+select {
+  width: 180px;
+  height: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #505458;
+}
+
+.last_block {
+  flex-grow: 8;
+}
+
+.last_row {
+  display: flex;
+  flex-direction: row;
+}
+
+.chart_filters {
+  flex-grow: 8;
+  background-color: #ffffff;
+  margin-right: 20px;
+  padding: 15px;
+  line-height: 3px;
+}
+
+.block2 {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.measures {
+  flex-grow: 3;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 15px;
+  line-height: 25px;
+}
+
+.confidence {
+  flex-grow: 4;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 15px;
+  line-height: 25px;
+}
+
+.swot {
+  flex-grow: 3;
+  background-color: #ffffff;
+  padding: 15px;
+  line-height: 25px;
+}
+
+.values {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #505458;
+}
+
+label {
+  font-size: 14px;
+  font-family: "Karla", "sans-serif";
+}
+
+.searchdiv {
+  float: right;
+}
+
+.entries {
+  width: 50px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.search {
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+  float: right;
+}
+
+.page_description {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 25px;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+.pagination-link {
+  padding: 6px 12px;
+  color: #23527c;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid #e4e7ea;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline;
+}
+
+.pagination {
+  display: inline-block;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  margin-right: 25px;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+.table {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f4f8fb;
+}
