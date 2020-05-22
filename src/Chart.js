@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
+import Node from "./Node";
 
 class Chart extends Component {
   constructor(props) {
     super(props);
     this.drawHeatMap = this.drawHeatMap.bind(this);
+    this.mapLikelihood = this.mapLikelihood.bind(this);
+    this.mapRelevance = this.mapRelevance.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +24,72 @@ class Chart extends Component {
     console.log("Chart Updated");
 
     this.drawHeatMap();
+  }
+
+  mapRelevance(relevance_val) {
+    console.log(typeof relevance_val);
+    var relevance = "";
+
+    if (typeof relevance_val === "undefined") {
+      relevance_val = 1;
+    }
+
+    switch (relevance_val) {
+      case 1:
+        relevance = "Vague";
+        break;
+      case 2:
+        relevance = "Early Stage";
+        break;
+      case 3:
+        relevance = "Gaining Traction";
+        break;
+      case 4:
+        relevance = "Evolving";
+        break;
+      case 5:
+        relevance = "Established";
+        break;
+      case 6:
+        relevance = "Expansionary";
+        break;
+      case 7:
+        relevance = "Growing";
+        break;
+      default:
+        relevance = "";
+    }
+
+    return relevance;
+  }
+
+  mapLikelihood(likelihood_val) {
+    var likelihood = "";
+
+    if (typeof likelihood_val === "undefined") {
+      likelihood_val = 1;
+    }
+
+    switch (likelihood_val) {
+      case 1:
+        likelihood = "Potential";
+        break;
+      case 2:
+        likelihood = "Possible";
+        break;
+      case 3:
+        likelihood = "Probable";
+        break;
+      case 4:
+        likelihood = "Business as Usual";
+        break;
+
+      default:
+        likelihood = "";
+        break;
+    }
+
+    return likelihood;
   }
 
   drawHeatMap() {
@@ -151,16 +220,27 @@ class Chart extends Component {
 
         d3.select(".node")
           .append("p")
-          .html(d.intensity + "|" + d.relevance + "|" + d.likelihood)
+          .html(
+            d.intensity +
+              " | " +
+              this.mapRelevance(d.relevance) +
+              " | " +
+              this.mapLikelihood(d.likelihood)
+          )
           .style("font-size", "14px")
-          .style("font-family", "Roboto");
+          .style("font-family", "Roboto")
+          .style("color", "#797979");
 
         d3.select(".node")
           .append("a")
           .attr("xlink:href", d.url)
-          .html("<a href=" + d.url + " target='_blank'>" + d.title + "</a>")
-          .style("color", "#23527c")
-          .style("text-decoration", "none")
+          .html(
+            "<a style='color: #23527c; text-decoration: none;' href=" +
+              d.url +
+              " target='_blank'>" +
+              d.title +
+              "</a>"
+          )
           .style("font-size", "14px")
           .style("font-family", "Roboto")
           .style("align", "left");

@@ -7,34 +7,6 @@ function Pagination(props) {
     page_numbers.push(i);
   }
 
-  const page_numbers_opt1 = [
-    props.first_page,
-    "...",
-    props.current_page - 1,
-    props.current_page,
-    props.current_page + 1,
-    "...",
-    props.last_page,
-  ];
-  const page_numbers_opt2 = [
-    props.first_page,
-    "...",
-    props.lastpage + 1 - 5,
-    props.lastpage + 1 - 4,
-    props.lastpage + 1 - 3,
-    props.lastpage + 1 - 2,
-    props.last_page,
-  ];
-  const page_numbers_opt3 = [
-    props.first_page,
-    props.first_page + 1,
-    props.first_page + 2,
-    props.first_page + 3,
-    props.first_page + 4,
-    "...",
-    props.last_page,
-  ];
-
   return (
     <div className="pagination">
       <a
@@ -61,7 +33,7 @@ function Pagination(props) {
       {props.current_page >= 5 &&
       props.current_page < props.last_page + 1 - 5 ? (
         <span>
-          <a href="!#" className="pagination-link">
+          <a href="!#" className="pagination-link inactive">
             {"..."}
           </a>
           <a
@@ -94,7 +66,7 @@ function Pagination(props) {
           >
             {props.current_page + 1}
           </a>
-          <a href="!#" className="pagination-link">
+          <a href="!#" className="pagination-link inactive">
             {"..."}
           </a>
         </span>
@@ -144,7 +116,7 @@ function Pagination(props) {
           >
             {props.first_page + 4}
           </a>
-          <a href="!#" className="pagination-link">
+          <a href="!#" className="pagination-link inactive">
             {"..."}
           </a>
         </span>
@@ -154,7 +126,7 @@ function Pagination(props) {
 
       {props.current_page >= props.last_page + 1 - 5 ? (
         <span>
-          <a href="!#" className="pagination-link">
+          <a href="!#" className="pagination-link inactive">
             {"..."}
           </a>
           <a

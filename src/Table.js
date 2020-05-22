@@ -32,7 +32,7 @@ class Table extends Component {
     });
   }
 
-  drawTable() {
+  drawTable(search_term) {
     const dataTable = Object.keys(this.props.state.rawdata).map(
       (i) => this.props.state.rawdata[i]
     );

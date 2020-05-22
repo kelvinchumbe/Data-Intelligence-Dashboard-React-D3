@@ -7,16 +7,16 @@ function Row(props) {
     (i) => props.state.rawdata[i]
   );
 
-  function sortByProperty(property) {
+  function sortByProperty(property, country) {
     return function (a, b) {
-      if (a[property] > b[property]) return -1;
-      else if (a[property] > b[property]) return 1;
+      if (a[property] > b[property] && a[country] !== "") return -1;
+      else if (a[property] < b[property] && a[country] !== "") return 1;
 
       return 0;
     };
   }
 
-  const sortedObj = array.sort(sortByProperty("intensity"));
+  const sortedObj = array.sort(sortByProperty("intensity", "country"));
 
   return (
     <div className="rows">
